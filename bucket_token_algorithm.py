@@ -1,4 +1,3 @@
-import asyncio 
 import threading
 import time
 
@@ -23,7 +22,7 @@ class BucketTokenAlgorithm:
         else:
             new_bucket = _Bucket(client_ip, self.rate)
             self.buckets.append(new_bucket)
-            return True
+            return new_bucket.is_valid()
 
 class _Bucket:
     def __init__(self, client: str, tokens: int):
